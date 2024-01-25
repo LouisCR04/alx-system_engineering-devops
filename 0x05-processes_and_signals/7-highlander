@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Displays...
+
+cout()
+{
+	echo "I am invincible!!!"
+}
+
+trap "cout" SIGTERM
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
