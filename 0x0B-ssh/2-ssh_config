@@ -1,0 +1,5 @@
+# SSH config file, no pass & absol path for priv key
+
+Host 54.172.55.7
+IdentifyFile ~/.ssh/school
+PasswordAuthentication no
