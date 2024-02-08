@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # 404 custom page
-
-# /redirect_me is redirects to another page (301)
+# /redirect_me redirects to another page (301)
 
 sudo apt-get update
 sudo apt-get install nginx -y
@@ -17,6 +16,6 @@ echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 
 sed -i "s|server_name\ _;|$upd_conf|" /etc/nginx/sites-available/default
-sed -i "0,/}/ s|}$err_404|" /etc/nginx/sites-available/default
+sed -i "0,/}/ s|}|$err_404|" /etc/nginx/sites-available/default
 
 service nginx restart
