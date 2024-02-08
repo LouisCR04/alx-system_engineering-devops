@@ -1,7 +1,7 @@
 # Accomplishes the stated requirements using Puppet
 include stdlib
 
-$link = "https://www.youtube.com/watch?v=QH2-TGUlwu4"
+$link = 'https://www.youtube.com/watch?v=QH2-TGUlwu4'
 
 exec { 'update packages':
   command => '/usr/bin/apt-get update'
@@ -29,8 +29,8 @@ file_line {
   ensure  => 'present',
   after   => 'server_name\ _;',
   path    => '/etc/nginx/sites-available/default',
- multiple => true,
-  line    => '\trewrite ^/redirect_me/$ ${link} permanent;'
+  multiple=> true,
+  line    => "\trewrite ^/redirect_me/$ ${link} permanent;"
   notify  => Exec['restart nginx'],
   require => File['/var/www/html/index.html']
 }
