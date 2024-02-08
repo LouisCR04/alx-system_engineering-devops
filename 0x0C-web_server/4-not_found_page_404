@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# 404 custom page
+
+# /redirect_me is redirects to another page (301)
+
+sudo apt-get update
+sudo apt-get install nginx -y
+ufw allow 'Nginx HTTP'
+
+link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+upd_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
+err_loc="location = /404.html {\n\t\troot /var/www/html/;\n\t\tinternal;\n"
+upd_err="error_page 404 /404.html;\n\t$err_loc"
+err_404="\n\n\t$upd_err\t}"
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sed -i "s|server_name\ _;|$upd_conf|" /etc/nginx/sites-available/default
+sed -i "0,/}/ s|}$err_404|" /etc/nginx/sites-available/default
+
+service nginx restart
