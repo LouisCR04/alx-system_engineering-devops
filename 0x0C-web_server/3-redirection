@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# /redirect_me is redirects to another page (301)
+
+sudo apt-get update
+sudo apt-get install nginx -y
+ufw allow 'Nginx HTTP'
+
+link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+upd_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sed -i "s|server_name\ _;|$upd_conf|" /etc/nginx/sites-available/default
+
+service nginx restart
