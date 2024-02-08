@@ -10,7 +10,7 @@ link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 upd_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
 err_loc="location = /404.html {\n\t\troot /var/www/html/;\n\t\tinternal;\n"
 upd_err="error_page 404 /404.html;\n\t$err_loc"
-err_404="\n\n\t$upd_err\t}"
+err_404="}\n\n\t$upd_err\t}"
 
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
