@@ -14,6 +14,8 @@ upd_err="error_page 404 /404.html;\n\t$err_loc"
 err_404="\n\n\t$upd_err\t}"
 
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
 sed -i "s|server_name\ _;|$upd_conf|" /etc/nginx/sites-available/default
 sed -i "0,/}/ s|}$err_404|" /etc/nginx/sites-available/default
 
