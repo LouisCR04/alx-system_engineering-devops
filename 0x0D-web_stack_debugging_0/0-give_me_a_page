@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Fixes the query return page
 
-echo "ServerName localhost" >> /etc/apache2.conf
+sudo echo "ServerName localhost" >> /etc/apache2.conf
 service apache2 start
