@@ -9,7 +9,7 @@ sudo chown -R "$USER":"$USER" /var/www/html/index.nginx-debian.html
 sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/default
 sudo chown -R "$USER":"$USER" /var/www/html
 
-echo "Hello World" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 
 config=\
@@ -19,7 +19,7 @@ config=\
 		root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 	server_name _;
-	add_header X-served-By \$hostname
+	add_header X-served-By \$hostname;
 	location / {
 		try_files \$uri \$uri/ =404;
 	}
