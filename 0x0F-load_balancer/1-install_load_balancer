@@ -3,11 +3,11 @@
 
 sudo apt-get update
 sudo apt-get -y install --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
-sudo apt-get -y install haproxy
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
+sudo apt-get -y install haproxy=2.8.\*
 
 # the load balancer's configuration
-DOMAIN_NAME='beta-scribbles.tech'
+DOMAIN_NAME='webwinter.tech'
 INIT_FILE='/etc/default/haproxy'
 CONFIG_FILE='/etc/haproxy/haproxy.cfg'
 HAPROXY_LB_CONFIG=\
@@ -15,8 +15,8 @@ HAPROXY_LB_CONFIG=\
 #--$DOMAIN_NAME-params-begin--
 backend $DOMAIN_NAME-backend
 	balance roundrobin
-	server 2012-web-01 35.231.28.100 check
-	server 2012-web-02 3.233.219.154 check
+	server 448362-web-01 54.172.55.7:80 check
+	server 448362-web-02 54.157.151.17:80 check
 frontend $DOMAIN_NAME-frontend
 	bind *:80
 	mode http
