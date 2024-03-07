@@ -10,12 +10,12 @@ sudo apt install -y haproxy=2.8.\*
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 
 cat <<EOT | sudo tee -a /etc/haproxy/haproxy.cfg
-frontend garretakpale.tech
+frontend webwinter.tech
     timeout client  30000
     bind 0:80
-    default_backend garretakpale.tech_backend
+    default_backend webwinter.tech_backend
 
-backend garretakpale.tech_backend
+backend webwinter.tech_backend
     timeout connect  3000
     timeout server  30000
     balance roundrobin
