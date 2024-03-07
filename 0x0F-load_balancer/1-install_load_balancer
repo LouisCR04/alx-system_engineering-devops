@@ -24,5 +24,6 @@ backend="$bname\n\t$bbalance\n\t$bserver1\n\t$bserver2"
 
 sudo sed -i "$ a $frontend" $hgproxy_conf_file
 sudo sed -i "$ a $backend" $hgproxy_conf_file
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 
 sudo service haproxy restart
