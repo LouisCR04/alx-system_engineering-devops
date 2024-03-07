@@ -2,10 +2,10 @@
 # Installs & configures HAproxy as required
 
 sudo apt update
-sudo apt install -y software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-1.8 -y
+sudo apt-get install -y --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.8 -y
 sudo apt update
-sudo apt install -y haproxy=1.8.\*
+sudo apt install -y haproxy=2.8.\*
 
 hgproxy_conf_file="/etc/haproxy/haproxy.cfg"
 
@@ -18,8 +18,8 @@ frontend="$fname\n\t$fbind\n\t$fmode\n\t$fdefault\n"
 
 bname="backend web-backend"
 bbalance="balance roundrobin"
-bserver1="server 448362-web-01 54.172.55.7:80 check"
-bserver2="server 448362-web-02 54.157.151.17:80 check"
+bserver1="server 448362-web-01 54.90.41.29:80 check"
+bserver2="server 448362-web-02 54.88.199.223:80 check"
 backend="$bname\n\t$bbalance\n\t$bserver1\n\t$bserver2"
 
 sudo sed -i "$ a $frontend" $hgproxy_conf_file
