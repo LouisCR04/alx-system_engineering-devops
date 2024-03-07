@@ -19,8 +19,8 @@ backend garretakpale.tech_backend
     timeout connect  3000
     timeout server  30000
     balance roundrobin
-    server 298443-web-01 5:80 check
-    server 298443-web-02 54.174.71.218:80 check
+    server 298443-web-01 54.90.41.29:80 check
+    server 298443-web-02 54.88.199.223:80 check
 EOT
 
 sudo service haproxy restart
