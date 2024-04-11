@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 0-subs.py
+""" 0-subs.py - Gets no. of subs for a reddit"""
 import requests
 
 
