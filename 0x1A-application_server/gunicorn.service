@@ -1,8 +1,8 @@
-[unit]
+[Unit]
 Description=Starts HBNB Apps using Gunicorn
 After=network.target
 
-[service]
+[Service]
 PermissionsStartOnly = true
 PIDFile = /run/hbnb/hbnb.pid
 User = ubuntu
@@ -16,5 +16,5 @@ ExecStop = /bin/kill -s TERM $MAINPID
 ExecStopPost = /bin/rm -rf /run/hbnb
 PrivateTmp = false
 
-[install]
+[Install]
 WantedBy=multi-user.target
