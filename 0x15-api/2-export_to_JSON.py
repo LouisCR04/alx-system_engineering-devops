@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # 2-export_to_JSON.py
+"""Exports data retrieved from an API to a json file"""
 
 import json
 import requests
@@ -7,6 +8,7 @@ import sys
 
 
 def gather_data():
+    """Retrieves from API & Exports to JSON file"""
     url = "https://jsonplaceholder.typicode.com/"
     user_id = sys.argv[1]
     user = requests.get(url + "users/{}".format(user_id)).json()
