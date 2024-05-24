@@ -9,7 +9,7 @@ import sys
 def gather_data():
     url = "https://jsonplaceholder.typicode.com/"
     user_id = sys.argv[1]
-    user = requests.get(url + f"users/{user_id}").json()
+    user = requests.get(url + "users/{}".format(user_id)).json()
     todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
     tasks = []
