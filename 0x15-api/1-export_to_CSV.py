@@ -3,9 +3,9 @@
 
 """Gathers data from an API"""
 
+import csv
 import requests
 import sys
-import csv
 
 
 def gather_data():
