@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """
-100-main
+0-main
 """
 import sys
 
 if __name__ == '__main__':
-    count_words = __import__('100-count').count_words
-    if len(sys.argv) < 3:
-        print("Usage: {} <subreddit> <list of keywords>".format(sys.argv[0]))
-        print("Ex: {} programming 'python java javascript'".format(sys.argv[0]))
+    number_of_subscribers = __import__('0-subs').number_of_subscribers
+    if len(sys.argv) < 2:
+        print("Please pass an argument for the subreddit to search.")
     else:
-        result = count_words(sys.argv[1], [x for x in sys.argv[2].split()])
+        print("{:d}".format(number_of_subscribers(sys.argv[1])))
